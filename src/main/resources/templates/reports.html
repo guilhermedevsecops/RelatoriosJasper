@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasper Relatório</title>
+</head>
+<body>
+    <h1>Relatório</h1>
+    <!-- Links para abrir ou baixar o relatório jr1 -->
+    <a th:href="@{/relatorio/pdf/jr1?code=01&acao=v}">Abrir</a>
+    <a th:href="@{/relatorio/pdf/jr1?code=01&acao=d}">Download</a>
+    <hr>
+    <!-- Outro link para abrir o relatório jr1 -->
+    <a th:href="@{/relatorio/pdf/jr1?code=01&acao=v}">Abrir</a>
+    <div>
+        <h2>Relatório 2</h2>
+        <!-- Formulário para selecionar o nível -->
+        <form th:action="@{/relatorio/pdf/jr9/09}" method="get">
+            <select id="nivel" name="nivel">
+                <option value="">Selecione o nível</option>
+                <!-- Iterando sobre a lista de níveis -->
+                <option th:each="nivel : ${niveis}" th:value="${nivel}" th:text="${nivel}">Selecione o nível</option>
+            </select>
+        </form>
+        <!-- Formulário para selecionar a UF -->
+        <form th:action="@{/relatorio/pdf/jr9/09}" method="get">
+            <select id="uf" name="uf">
+                <option value="">Selecione a UF</option>
+                <!-- Iterando sobre a lista de UFs -->
+                <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf}">Selecione a UF</option>
+            </select>
+            <!-- Botão para enviar o formulário -->
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+</body>
+</html>
